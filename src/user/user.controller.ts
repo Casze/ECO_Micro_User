@@ -2,12 +2,14 @@ import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './schema/user.schema';
 import { CreateUserDto } from './dto/create.user.dto';
+import { GrpcMethod } from '@nestjs/microservices';
 
 @Controller('users')
 export class UserController {
   constructor(private userService: UserService) {}
 
   @Get()
+  @GrpcMethod('UserService','FindAll')
   async findAll(): Promise<User[]> {
     return this.userService.findAll();
   }

@@ -9,8 +9,8 @@ async function bootstrap() {
       transport: Transport.GRPC,
       options: {
         url:"0.0.0.0:50051",
-        package: 'user',
-        protoPath: join('node_modules/microservicios/proto/users.proto')
+        package: 'users',
+        protoPath: join('./proto/users.proto')
       }
   }
   );
