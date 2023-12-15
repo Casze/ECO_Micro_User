@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create.user.dto';
 import { FindUserDto } from './dto/find.user.dto';
-import { USER_SERVICE_NAME, UserServiceController, UserServiceControllerMethods, DeleteUserRequest, DeleteUserResponse, FindOneUserRequest } from './users.pb';
+import { USER_SERVICE_NAME, UserServiceController, UserServiceControllerMethods, DeleteUserRequest, DeleteUserResponse, FindOneUserRequest, GetAllUsersRequest, GetAllUsersResponse } from './users.pb';
 import { GrpcMethod } from '@nestjs/microservices';
 
 @Controller('users')
@@ -25,4 +25,14 @@ export class UserController implements UserServiceController {
   async deleteUser(id: FindUserDto) {
     return this.userService.deleteUser(id);
   }
+
+  // Cambios Felipe
+
+  @GrpcMethod('UserService', 'GetAllUsers')
+  async getAllUsers(): Promise<GetAllUsersResponse> {
+    const users = await this.userService.getAllUsers();
+    return { users }; // Asegúrate de que esto coincida con la estructura definida en tus mensajes gRPC
+  }
+
+
 }

@@ -31,7 +31,7 @@ describe('UserService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
-  /*
+  
   it('should create a user', async () => {
     const userDto = { username: 'testuser', password: 'pass123', email: 'test@test.com' };
     mockUserModel.create.mockResolvedValue(userDto); // Asegúrate de que el mock devuelva lo que se espera
@@ -39,7 +39,7 @@ describe('UserService', () => {
     expect(result).toEqual(userDto);
     //expect(mockUserModel.create).toHaveBeenCalledWith(userDto);
   });
-  */
+  
 
   // Add more tests for other methods
 });

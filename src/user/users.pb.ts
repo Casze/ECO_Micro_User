@@ -77,6 +77,16 @@ export function UserServiceControllerMethods() {
       GrpcStreamMethod("UserService", method)(constructor.prototype[method], method, descriptor);
     }
   };
+  
+}
+
+//Cambios Felipe
+
+export interface GetAllUsersRequest {
+}
+
+export interface GetAllUsersResponse {
+  users: User[];
 }
 
 export const USER_SERVICE_NAME = "UserService";

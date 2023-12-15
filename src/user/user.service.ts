@@ -2,7 +2,7 @@ import { Injectable, OnModuleInit } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { User } from './schema/user.schema';
 import { Model } from 'mongoose';
-import { CreateUserRequest, CreateUserResponse, FindOneUserRequest, FindOneUserResponse, DeleteUserRequest, DeleteUserResponse } from './users.pb';
+import { CreateUserRequest, CreateUserResponse, FindOneUserRequest, FindOneUserResponse, DeleteUserRequest, DeleteUserResponse, GetAllUsersRequest, GetAllUsersResponse } from './users.pb';
 
 
 @Injectable()
@@ -51,4 +51,14 @@ export class UserService {
       };
     }
   } 
+
+  //Cambios Felipe
+
+  async getAllUsers(): Promise<any[]> { // Cambia el tipo de retorno según tus necesidades
+    return this.userModel.find().lean().exec();
+  }
+  
+  
+  
+
 }

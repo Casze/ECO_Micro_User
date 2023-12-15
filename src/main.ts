@@ -12,7 +12,7 @@ async function bootstrap() {
       options: {
         url:"0.0.0.0:50051",
         package: protobufPackage,
-        protoPath: join('node_modules/microservicios/proto/users.proto')
+        protoPath: join(__dirname, 'user/users.proto'),     
       }
   }
   );
